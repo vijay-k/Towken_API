@@ -7,18 +7,14 @@ module.exports = function () {
     var Collection_TowkenRatings = require('../models/TowkenRating.js');
     var Collection_TowkenRedeems = require('../models/TowkenRedeem.js');
     var Collection_TowkenPrices = require('../models/TowkenPrice.js');
+    var Collection_States = require('../models/States.js');
+    var CONSTANTS = require('../constants.js');
 
-    //Development    
-    //mongoose.connect('mongodb://localhost:27017/Towkens');
-
-    //Production    
-    mongoose.connect('mongodb://vijayk:123456@ds161049.mlab.com:61049/towken');
+    mongoose.connect(CONSTANTS.DATABASE_CONNECTION_STRING);
 
     var db = mongoose.connection;
 
-    db.on('error', function (err) {
-        process.exit();
-    });
+    db.on('error', function (err) { process.exit(); });
 
     // var SchemaTypes = mongoose.Schema.Types;
 
@@ -44,6 +40,7 @@ module.exports = function () {
         req.Collection_tokenRatings = Collection_TowkenRatings;
         req.Collection_tokenRedeems = Collection_TowkenRedeems;
         req.Collection_TowkenPrices = Collection_TowkenPrices;
+        req.Collection_States = Collection_States;
         next();
     };
 };

@@ -11,6 +11,7 @@ var token = require('./middleware/token.js');
 var users = require('./routes/users');
 var towken = require('./routes/towken');
 var stripeRoutes = require('./routes/stripe');
+var states = require('./routes/states');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(token);
 app.use('/v1/customer', users);
 app.use('/v1/towken', towken);
 app.use('/v1/stripe', stripeRoutes)
+app.use('/api/v1/states', states)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -84,5 +86,9 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
+
+app.get('/', function (req, res) {
+    res.sendfile('./index.html');
+})
 
 module.exports = app;
