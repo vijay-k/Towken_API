@@ -36,7 +36,7 @@ app.use(token);
 app.use('/v1/customer', users);
 app.use('/v1/towken', towken);
 app.use('/v1/stripe', stripeRoutes)
-app.use('/api/v1/states', states)
+app.use('/v1/states', states)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
