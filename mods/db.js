@@ -8,6 +8,7 @@ module.exports = function () {
     var Collection_TowkenRedeems = require('../models/TowkenRedeem.js');
     var Collection_TowkenPrices = require('../models/TowkenPrice.js');
     var Collection_States = require('../models/States.js');
+    var Collection_BusinessTypes = require('../models/BusinessTypes.js');
     var CONSTANTS = require('../constants.js');
 
     mongoose.connect(CONSTANTS.DATABASE_CONNECTION_STRING);
@@ -41,6 +42,7 @@ module.exports = function () {
         req.Collection_tokenRedeems = Collection_TowkenRedeems;
         req.Collection_TowkenPrices = Collection_TowkenPrices;
         req.Collection_States = Collection_States;
+        req.Collection_BusinessTypes = Collection_BusinessTypes;
         next();
     };
 };

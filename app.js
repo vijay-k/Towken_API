@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var towken = require('./routes/towken');
 var stripeRoutes = require('./routes/stripe');
 var states = require('./routes/states');
+var businessTypes = require('./routes/business-types');
 
 var app = express();
 
@@ -35,8 +36,9 @@ app.use(token);
 
 app.use('/v1/customer', users);
 app.use('/v1/towken', towken);
-app.use('/v1/stripe', stripeRoutes)
-app.use('/v1/states', states)
+app.use('/v1/stripe', stripeRoutes);
+app.use('/v1/states', states);
+app.use('/v1/businesstypes', businessTypes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
