@@ -20,7 +20,10 @@ var userSchema = new mongoose.Schema({
     state: String,
     zip: Number,
     hours: String,
-    businessType: String
+    businessTypeId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'BusinessType'
+    }
 });
 
 var model = mongoose.model('User', userSchema);

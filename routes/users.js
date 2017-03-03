@@ -141,6 +141,7 @@ router.post('/signup/business', function (req, res, next) {
     var model = req.Collection_users;
 
     var address = req.body.address;
+
     var businessType = req.body.businessType;
     var city = req.body.city;
     var email = req.body.email;
@@ -170,7 +171,7 @@ router.post('/signup/business', function (req, res, next) {
                 email: email,
                 password: hash_password,
                 type: userType.toLowerCase(),
-                businessType: businessType,
+                businessTypeId: businessType._id,
                 phone: phone,
                 address: address,
                 city: city,
